@@ -1,20 +1,20 @@
 <#
-
-    .Description
+    .DESCRIPTION
         Script to modify SNMP settings
 
-    .Changelog
+    .NOTES
         2/25/2019 - Added menu for cluster selection
         2/25/2019 - Removed SNMP Targets
         2/25/2019 - Staticly set $community variable
         2/27/2019 - v2.1 Rewrote Set SNMP to use esxcli -V2
-
-    .Testing
-        2/22/2019 - Validated SNMP settings take effect immediately (no service restart required)
-        2/25/2019 - Validated against 6.5/6.7 (snmpwalk -v 2c -c $community $vmhost)
-        2/27/2019 - Validated set/remove targets
-
 #>
+
+##################################################################################
+# Script:           set-snmp.ps1
+# Date:            2/25/2019
+# Author:           Elihu J aka. virtualramblings (c) 2019
+# Version:          2.1
+##################################################################################
 
 # Add the VMware Module
 if (!(Get-Module VMware.VimAutomation.Core)) {
@@ -44,7 +44,7 @@ if ($serverlist -eq $null) {
 }
 
 # Set SNMP variables
-$community = "entstringp"
+$community = ""
 
 # Run stuff
 Do {
