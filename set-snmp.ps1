@@ -11,7 +11,7 @@
 
 ##################################################################################
 # Script:           set-snmp.ps1
-# Date:            2/25/2019
+# Date:             2/25/2019
 # Author:           Elihu J aka. virtualramblings (c) 2019
 # Version:          2.1
 ##################################################################################
@@ -44,7 +44,7 @@ if ($serverlist -eq $null) {
 }
 
 # Set SNMP variables
-$community = ""
+$community = Read-Host "SNMP Community Name"
 
 # Run stuff
 Do {
@@ -73,7 +73,6 @@ Do {
             $snmpargs.reset = "true"
             $snmpargs.enable = "true"
             $snmpargs.communities = $community
-            #$snmpargs.targets = "172.25.8.2/public"
             $esxcli.system.snmp.set.Invoke($snmpargs)
             }
 
